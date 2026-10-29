@@ -1,0 +1,6 @@
+{
+  "name": "Saffron & Stone",
+  "description": "Where Flavour Meets Elegance — A luxurious, modern restaurant website featuring authentic flavours, table reservations, online ordering, signature dishes, and gallery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
