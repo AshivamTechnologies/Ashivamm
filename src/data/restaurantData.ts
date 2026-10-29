@@ -44,7 +44,7 @@ export const SIGNATURE_DISHES: MenuItem[] = [
     isBiryani: true,
     isSignature: true,
     spiceLevel: 2,
-    image: '/src/assets/images/dish_saffron_biryani_1793203589529.jpg',
+    image: '/images/dish_saffron_biryani_1793203589529.jpg',
     rating: 4.9,
     prepTime: '25 mins',
     tags: ['Royal Heritage', 'Chef Signature', 'Dum Cooked']
@@ -59,7 +59,7 @@ export const SIGNATURE_DISHES: MenuItem[] = [
     isStarter: true,
     isSignature: true,
     spiceLevel: 2,
-    image: '/src/assets/images/dish_stone_grilled_chicken_1793203590142.jpg',
+    image: '/images/dish_stone_grilled_chicken_1793203590142.jpg',
     rating: 4.8,
     prepTime: '20 mins',
     tags: ['Volcanic Rock Charred', 'House Special']
@@ -74,7 +74,7 @@ export const SIGNATURE_DISHES: MenuItem[] = [
     isCurry: true,
     isSignature: true,
     spiceLevel: 1,
-    image: '/src/assets/images/dish_butter_paneer_1793203631938.jpg',
+    image: '/images/dish_butter_paneer_1793203631938.jpg',
     rating: 4.9,
     prepTime: '18 mins',
     tags: ['Vegetarian Favorite', 'Rich Cream Gravy']
@@ -89,7 +89,7 @@ export const SIGNATURE_DISHES: MenuItem[] = [
     isStarter: true,
     isSignature: true,
     spiceLevel: 2,
-    image: '/src/assets/images/dish_tandoori_platter_1793203632328.jpg',
+    image: '/images/dish_tandoori_platter_1793203632328.jpg',
     rating: 5.0,
     prepTime: '25 mins',
     tags: ['Grand Sharing', 'Charcoal Clay Oven']
@@ -103,7 +103,7 @@ export const SIGNATURE_DISHES: MenuItem[] = [
     isVegetarian: false,
     isSignature: true,
     spiceLevel: 1,
-    image: '/src/assets/images/dish_garlic_prawns_1793203633854.jpg',
+    image: '/images/dish_garlic_prawns_1793203633854.jpg',
     rating: 4.9,
     prepTime: '15 mins',
     tags: ['Coastal Catch', 'Garlic Infused']
@@ -117,7 +117,7 @@ export const SIGNATURE_DISHES: MenuItem[] = [
     isVegetarian: true,
     isSignature: true,
     spiceLevel: 0,
-    image: '/src/assets/images/dish_lava_cake_1793203632849.jpg',
+    image: '/images/dish_lava_cake_1793203632849.jpg',
     rating: 4.9,
     prepTime: '12 mins',
     tags: ['Warm Molten Center', 'Pastry Chef Pick']
@@ -137,7 +137,7 @@ export const FULL_MENU: MenuItem[] = [
     isVegetarian: true,
     isMeal: true,
     spiceLevel: 1,
-    image: '/src/assets/images/dish_maharaja_thali_1793242388409.jpg',
+    image: '/images/dish_maharaja_thali_1793242388409.jpg',
     rating: 5.0,
     prepTime: '20 mins',
     tags: ['Royal Banquet Meal', 'Multi-Course Thali']
@@ -153,7 +153,7 @@ export const FULL_MENU: MenuItem[] = [
     isVegetarian: false,
     isBiryani: true,
     spiceLevel: 2,
-    image: '/src/assets/images/dish_hyderabadi_biryani_1793242389009.jpg',
+    image: '/images/dish_hyderabadi_biryani_1793242389009.jpg',
     rating: 4.9,
     prepTime: '25 mins',
     tags: ['Hyderabadi Dum', 'Royal Recipe']
@@ -167,7 +167,7 @@ export const FULL_MENU: MenuItem[] = [
     isVegetarian: true,
     isBiryani: true,
     spiceLevel: 1,
-    image: '/src/assets/images/dish_kathal_biryani_1793242391364.jpg',
+    image: '/images/dish_kathal_biryani_1793242391364.jpg',
     rating: 4.8,
     prepTime: '22 mins',
     tags: ['Vegetarian Dum', 'Awadhi Kathal']
@@ -183,7 +183,7 @@ export const FULL_MENU: MenuItem[] = [
     isVegetarian: true,
     isCurry: true,
     spiceLevel: 1,
-    image: '/src/assets/images/dish_methi_malai_matar_1793242389698.jpg',
+    image: '/images/dish_methi_malai_matar_1793242389698.jpg',
     rating: 4.9,
     prepTime: '16 mins',
     tags: ['Rich Velvet Cream', 'Mild & Aromatic']
@@ -197,7 +197,7 @@ export const FULL_MENU: MenuItem[] = [
     isVegetarian: true,
     isCurry: true,
     spiceLevel: 2,
-    image: '/src/assets/images/dish_kashmiri_dum_aloo_1793242390322.jpg',
+    image: '/images/dish_kashmiri_dum_aloo_1793242390322.jpg',
     rating: 4.8,
     prepTime: '18 mins',
     tags: ['Kashmiri Tradition', 'Slow Simmered']
@@ -211,7 +211,7 @@ export const FULL_MENU: MenuItem[] = [
     isVegetarian: true,
     isCurry: true,
     spiceLevel: 0,
-    image: '/src/assets/images/dish_navratan_korma_1793242392493.jpg',
+    image: '/images/dish_navratan_korma_1793242392493.jpg',
     rating: 4.8,
     prepTime: '18 mins',
     tags: ['Nine Gem Curry', 'Cashew Cream']
@@ -225,7 +225,7 @@ export const FULL_MENU: MenuItem[] = [
     isVegetarian: true,
     isCurry: true,
     spiceLevel: 1,
-    image: '/src/assets/images/dish_paneer_tikka_masala_1793204958028.jpg',
+    image: '/images/dish_paneer_tikka_masala_1793204958028.jpg',
     rating: 4.9,
     prepTime: '18 mins',
     tags: ['Chef Curated', 'Velvet Gravy']
@@ -239,7 +239,7 @@ export const FULL_MENU: MenuItem[] = [
     isVegetarian: true,
     isCurry: true,
     spiceLevel: 1,
-    image: '/src/assets/images/dish_dal_makhani_1793204808251.jpg',
+    image: '/images/dish_dal_makhani_1793204808251.jpg',
     rating: 4.9,
     prepTime: '20 mins',
     tags: ['Overnight Dum', 'Signature Dal']
@@ -254,7 +254,7 @@ export const FULL_MENU: MenuItem[] = [
     category: 'Non-veg items',
     isVegetarian: false,
     spiceLevel: 2,
-    image: '/src/assets/images/dish_mutton_korma_1793204958845.jpg',
+    image: '/images/dish_mutton_korma_1793204958845.jpg',
     rating: 5.0,
     prepTime: '24 mins',
     tags: ['Royal Awadh', 'Almond Saffron']
@@ -267,7 +267,7 @@ export const FULL_MENU: MenuItem[] = [
     category: 'Non-veg items',
     isVegetarian: false,
     spiceLevel: 2,
-    image: '/src/assets/images/dish_rogan_josh_1793204794132.jpg',
+    image: '/images/dish_rogan_josh_1793204794132.jpg',
     rating: 4.9,
     prepTime: '22 mins',
     tags: ['Kashmiri Recipe', 'Lamb Shank']
@@ -283,7 +283,7 @@ export const FULL_MENU: MenuItem[] = [
     isVegetarian: true,
     isStarter: true,
     spiceLevel: 1,
-    image: '/src/assets/images/dish_dahi_kebab_1793204793277.jpg',
+    image: '/images/dish_dahi_kebab_1793204793277.jpg',
     rating: 4.8,
     prepTime: '15 mins',
     tags: ['Melt in Mouth', 'Vegetarian Starter']
@@ -297,7 +297,7 @@ export const FULL_MENU: MenuItem[] = [
     isVegetarian: false,
     isStarter: true,
     spiceLevel: 2,
-    image: '/src/assets/images/dish_amritsari_fish_1793204809538.jpg',
+    image: '/images/dish_amritsari_fish_1793204809538.jpg',
     rating: 4.9,
     prepTime: '18 mins',
     tags: ['River Sole', 'Crisp Ajwain']
@@ -311,7 +311,7 @@ export const FULL_MENU: MenuItem[] = [
     isVegetarian: true,
     isStarter: true,
     spiceLevel: 1,
-    image: '/src/assets/images/dish_paneer_tikka_1793204824805.jpg',
+    image: '/images/dish_paneer_tikka_1793204824805.jpg',
     rating: 4.7,
     prepTime: '16 mins',
     tags: ['Tandoor Roasted', 'Pure Cottage Cheese']
@@ -325,7 +325,7 @@ export const FULL_MENU: MenuItem[] = [
     isVegetarian: true,
     isStarter: true,
     spiceLevel: 1,
-    image: '/src/assets/images/dish_crispy_corn_1793204959296.jpg',
+    image: '/images/dish_crispy_corn_1793204959296.jpg',
     rating: 4.7,
     prepTime: '12 mins',
     tags: ['Golden Crunch', 'Appetizer']
@@ -341,7 +341,7 @@ export const FULL_MENU: MenuItem[] = [
     isVegetarian: true,
     isDrink: true,
     spiceLevel: 0,
-    image: '/src/assets/images/drink_saffron_chai_1793204810187.jpg',
+    image: '/images/drink_saffron_chai_1793204810187.jpg',
     rating: 4.9,
     prepTime: '8 mins',
     tags: ['Single Estate', 'Royal Brew']
@@ -355,7 +355,7 @@ export const FULL_MENU: MenuItem[] = [
     isVegetarian: true,
     isDrink: true,
     spiceLevel: 0,
-    image: '/src/assets/images/drink_smoked_cocktail_1793204809382.jpg',
+    image: '/images/drink_smoked_cocktail_1793204809382.jpg',
     rating: 4.8,
     prepTime: '5 mins',
     tags: ['Smoked Libation', 'Mixology']
@@ -369,7 +369,7 @@ export const FULL_MENU: MenuItem[] = [
     isVegetarian: true,
     isDrink: true,
     spiceLevel: 0,
-    image: '/src/assets/images/drink_mango_lassi_1793204960599.jpg',
+    image: '/images/drink_mango_lassi_1793204960599.jpg',
     rating: 4.9,
     prepTime: '6 mins',
     tags: ['Alphonso Mango', 'Kulhad Served']
@@ -381,42 +381,42 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: 'gal-1',
     title: 'The Grand Stone Dining Hall',
     category: 'Interior',
-    image: '/src/assets/images/gallery_grand_archway_1793242870117.jpg',
+    image: '/images/gallery_grand_archway_1793242870117.jpg',
     caption: 'Arched volcanic stone vaults bathed in warm ambient candlelight.'
   },
   {
     id: 'gal-2',
     title: 'Terracotta Palace Courtyard',
     category: 'Interior',
-    image: '/src/assets/images/gallery_courtyard_fountain_1793242883252.jpg',
+    image: '/images/gallery_courtyard_fountain_1793242883252.jpg',
     caption: 'Intimate courtyard dining with brass lanterns, water fountain, and hand-carved pillars.'
   },
   {
     id: 'gal-3',
     title: 'Executive Chef Plating Art',
     category: 'Chef',
-    image: '/src/assets/images/gallery_chef_garnishing_1793242897422.jpg',
+    image: '/images/gallery_chef_garnishing_1793242897422.jpg',
     caption: 'Master culinary craftsmanship and artisanal plating at our open kitchen.'
   },
   {
     id: 'gal-4',
     title: 'Live Clay Tandoor Hearth',
     category: 'Chef',
-    image: '/src/assets/images/gallery_clay_tandoor_1793204960998.jpg',
+    image: '/images/gallery_clay_tandoor_1793204960998.jpg',
     caption: 'Artisan skewers roasting over glowing natural charcoal embers.'
   },
   {
     id: 'gal-5',
     title: 'Intimate Candlelit Table Setting',
     category: 'Dining',
-    image: '/src/assets/images/gallery_table_candles_1793204961528.jpg',
+    image: '/images/gallery_table_candles_1793204961528.jpg',
     caption: 'Sophisticated linen tables with polished silver and crystal stemware.'
   },
   {
     id: 'gal-6',
     title: 'Sommelier Wine Enclave',
     category: 'Ambience',
-    image: '/src/assets/images/gallery_wine_cellar_1793204823729.jpg',
+    image: '/images/gallery_wine_cellar_1793204823729.jpg',
     caption: 'Curated international vintages in our temperature-controlled cellar.'
   }
 ];
@@ -431,7 +431,7 @@ export const RESTAURANT_EVENTS: RestaurantEvent[] = [
     coverPrice: '₹1,499 per guest (Includes 3-Course Dinner)',
     description: 'Immerse your senses in classical Hindustani sitar and soulful Sufi melodies performed live by master musicians, paired with our signature stone-grilled tasting menu under ambient candlelight.',
     highlights: ['Live Classical Sitar Performance', 'Curated 3-Course Tasting Dinner', 'Complimentary Saffron Welcome Drink', 'Priority Chamber Seating'],
-    image: '/src/assets/images/event_live_sitar_sufi_1793204791369.jpg',
+    image: '/images/event_live_sitar_sufi_1793204791369.jpg',
     statusTag: 'Weekly Signature'
   },
   {
@@ -443,7 +443,7 @@ export const RESTAURANT_EVENTS: RestaurantEvent[] = [
     coverPrice: '₹2,199 per guest (Brunch & Mocktails)',
     description: 'Bask in gentle sea breezes on our private Colaba terrace. Feast on live clay tandoor counters, slow-dum biryani stations, fresh seasonal berries, and bottomless artisanal coolers.',
     highlights: ['Live Charcoal Tandoor Counters', 'Dum Handi Biryani Stations', 'Waterfront Harbor Terrace Seating', 'Live Jazz & World Acoustic Ensemble'],
-    image: '/src/assets/images/event_terrace_brunch_1793204792267.jpg',
+    image: '/images/event_terrace_brunch_1793204792267.jpg',
     statusTag: 'Popular Weekend'
   },
   {
@@ -455,7 +455,7 @@ export const RESTAURANT_EVENTS: RestaurantEvent[] = [
     coverPrice: '₹3,499 per guest (Limited to 16 Diners)',
     description: 'An intimate 7-course multi-sensory degustation personally introduced and served by our Executive Chef. Explores rare Himalayan spices, 24-hour slow reductions, and master wine pairings in the private cellar.',
     highlights: ['7-Course Bespoke Tasting Menu', 'Guided International Wine Pairings', 'Intimate Private Sommelier Cellar', 'Chef Discussion & Recipe Souvenir'],
-    image: '/src/assets/images/event_chef_degustation_1793242853426.jpg',
+    image: '/images/event_chef_degustation_1793242853426.jpg',
     statusTag: 'Exclusive Seating'
   }
 ];

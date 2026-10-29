@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
                 className="h-12 w-auto max-w-[170px] object-contain"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  target.src = '/public/assets/aistudio/image_fa912bac.png';
+                  target.src = '/assets/ashivam_logo.png';
                 }}
               />
             </div>

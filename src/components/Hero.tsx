@@ -134,8 +134,11 @@ export const Hero: React.FC<HeroProps> = ({ onExploreMenu, onReserveTable }) => 
               isMidnight ? 'border-stone-800/80 shadow-black/80' : 'border-white/90 shadow-stone-300/60'
             }`}>
               <img
-                src="/src/assets/images/hero_saffron_stone_dining_1793203589411.jpg"
+                src="/images/hero_saffron_stone_dining_1793203589411.jpg"
                 alt="Saffron & Stone Royal Dining Room Ambiance"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
               />
 

@@ -3,8 +3,8 @@ import { Search, Plus, Filter, Flame } from 'lucide-react';
 import { FULL_MENU } from '../data/restaurantData';
 import { DishCategory, MenuItem } from '../types';
 import { useCart } from '../context/CartContext';
+import { useAppTheme } from '../context/ThemeContext';
 
-// Categories including Veg Curries, Biryanis, Meals & Thalis, Veg items, Non-veg items, Starters, Drinks
 const CATEGORIES: DishCategory[] = [
   'All',
   'Veg Curries',
@@ -21,6 +21,8 @@ export const Menu: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeSpiceFilter, setActiveSpiceFilter] = useState<number | 'all'>('all');
   const { addToCart } = useCart();
+  const { theme } = useAppTheme();
+  const isMidnight = theme === 'midnight';
 
   // Dynamic filtering based on chosen category, search query, and spice
   const filteredDishes = useMemo(() => {
@@ -62,25 +64,36 @@ export const Menu: React.FC = () => {
   }, [selectedCategory, searchQuery, activeSpiceFilter]);
 
   return (
-    <section id="menu" className="py-12 sm:py-16 bg-[#faf7f2] border-t border-[#e8e1d5] relative">
+    <section 
+      id="menu" 
+      className={`py-14 sm:py-20 transition-colors duration-500 border-t relative ${
+        isMidnight 
+          ? 'bg-[#12100e] border-stone-800 text-stone-100' 
+          : 'bg-[#faf7f2] border-[#e8e1d5] text-stone-900'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header with balanced text alignment */}
-        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
-          <div className="text-xs font-bold uppercase tracking-widest text-amber-700 mb-2">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+          <div className="text-xs font-bold uppercase tracking-widest text-amber-500 mb-2">
             Culinary Repertoire
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-stone-900 tracking-tight" style={{ textWrap: 'balance' }}>
+          <h2 className={`font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight ${
+            isMidnight ? 'text-cream-50' : 'text-stone-900'
+          }`} style={{ textWrap: 'balance' }}>
             Interactive Dining Menu
           </h2>
-          <p className="mt-2.5 text-stone-600 text-sm sm:text-base max-w-xl mx-auto leading-relaxed" style={{ textWrap: 'balance' }}>
+          <p className={`mt-2.5 text-sm sm:text-base max-w-xl mx-auto leading-relaxed ${
+            isMidnight ? 'text-stone-400' : 'text-stone-600'
+          }`} style={{ textWrap: 'balance' }}>
             Explore royal Awadhi veg curries, slow-dum handi biryanis, grand maharaja thali meals, stone-charred starters, and refreshing drinks.
           </p>
-          <div className="w-16 h-0.5 bg-gradient-to-r from-amber-600 to-terracotta-500 mx-auto mt-3" />
+          <div className="w-16 h-0.5 bg-gradient-to-r from-amber-500 to-amber-700 mx-auto mt-3" />
         </div>
 
         {/* Search & Category Filter Controls */}
-        <div className="space-y-4 mb-6 sm:mb-8">
+        <div className="space-y-4 mb-8 sm:mb-10">
           
           {/* Centered Search Bar */}
           <div className="max-w-md mx-auto relative">
@@ -89,13 +102,17 @@ export const Menu: React.FC = () => {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search dishes (e.g. Biryani, Thali, Paneer, Korma, Chai)..."
-              className="w-full pl-11 pr-14 py-3 bg-white border border-[#e8e1d5] rounded-xl text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-600 shadow-sm transition-colors"
+              placeholder="Search dishes (e.g. Biryani, Thali, Paneer, Korma)..."
+              className={`w-full pl-11 pr-14 py-3 rounded-xl text-sm placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 shadow-sm transition-colors border ${
+                isMidnight 
+                  ? 'bg-stone-900/90 border-stone-700 text-white' 
+                  : 'bg-white border-[#e8e1d5] text-stone-900'
+              }`}
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs text-stone-500 hover:text-stone-900 font-medium"
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs text-stone-400 hover:text-amber-500 font-medium cursor-pointer"
               >
                 Clear
               </button>
@@ -110,10 +127,12 @@ export const Menu: React.FC = () => {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider whitespace-nowrap rounded-lg transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 ${
+                  className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider whitespace-nowrap rounded-lg transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 cursor-pointer ${
                     isSelected
-                      ? 'bg-amber-500 text-stone-950 font-bold shadow-md shadow-amber-500/20'
-                      : 'bg-white text-stone-700 hover:bg-stone-50 hover:text-stone-900 border border-[#e8e1d5]'
+                      ? 'bg-amber-400 text-stone-950 font-bold shadow-md shadow-amber-500/25'
+                      : isMidnight
+                        ? 'bg-stone-900/80 text-stone-300 hover:bg-stone-800 hover:text-white border border-stone-800'
+                        : 'bg-white text-stone-700 hover:bg-stone-50 hover:text-stone-900 border border-[#e8e1d5]'
                   }`}
                 >
                   {cat}
@@ -123,54 +142,64 @@ export const Menu: React.FC = () => {
           </div>
 
           {/* Sub-filter Bar */}
-          <div className="flex items-center justify-between text-xs text-stone-600 max-w-5xl mx-auto border-t border-[#e8e1d5] pt-4 px-2">
+          <div className={`flex items-center justify-between text-xs max-w-5xl mx-auto border-t pt-4 px-2 ${
+            isMidnight ? 'border-stone-800 text-stone-400' : 'border-[#e8e1d5] text-stone-600'
+          }`}>
             <div className="flex items-center gap-2">
-              <Filter className="w-3.5 h-3.5 text-amber-700" />
-              <span>Showing <strong className="text-stone-900 font-bold">{filteredDishes.length}</strong> distinctive dishes</span>
+              <Filter className="w-3.5 h-3.5 text-amber-500" />
+              <span>Showing <strong className={`font-bold ${isMidnight ? 'text-white' : 'text-stone-900'}`}>{filteredDishes.length}</strong> distinctive dishes</span>
             </div>
 
             <div className="flex items-center gap-2">
-              <span className="hidden sm:inline text-stone-500 font-medium">Spice:</span>
+              <span className="hidden sm:inline font-medium">Spice:</span>
               <button
                 onClick={() => setActiveSpiceFilter('all')}
-                className={`px-2.5 py-1 rounded transition-colors ${
-                  activeSpiceFilter === 'all' ? 'text-amber-800 font-bold bg-amber-100' : 'text-stone-600 hover:text-stone-900'
+                className={`px-2.5 py-1 rounded transition-colors cursor-pointer ${
+                  activeSpiceFilter === 'all' 
+                    ? isMidnight ? 'text-amber-300 font-bold bg-amber-500/20' : 'text-amber-800 font-bold bg-amber-100'
+                    : 'hover:text-amber-400'
                 }`}
               >
                 All
               </button>
               <button
                 onClick={() => setActiveSpiceFilter(1)}
-                className={`flex items-center gap-1 px-2.5 py-1 rounded transition-colors ${
-                  activeSpiceFilter === 1 ? 'text-amber-800 font-bold bg-amber-100' : 'text-stone-600 hover:text-stone-900'
+                className={`flex items-center gap-1 px-2.5 py-1 rounded transition-colors cursor-pointer ${
+                  activeSpiceFilter === 1 
+                    ? isMidnight ? 'text-amber-300 font-bold bg-amber-500/20' : 'text-amber-800 font-bold bg-amber-100'
+                    : 'hover:text-amber-400'
                 }`}
               >
-                <Flame className="w-3 h-3 text-amber-600" /> Mild
+                <Flame className="w-3 h-3 text-amber-500" /> Mild
               </button>
               <button
                 onClick={() => setActiveSpiceFilter(2)}
-                className={`flex items-center gap-1 px-2.5 py-1 rounded transition-colors ${
-                  activeSpiceFilter === 2 ? 'text-terracotta-700 font-bold bg-amber-100' : 'text-stone-600 hover:text-stone-900'
+                className={`flex items-center gap-1 px-2.5 py-1 rounded transition-colors cursor-pointer ${
+                  activeSpiceFilter === 2 
+                    ? isMidnight ? 'text-amber-300 font-bold bg-amber-500/20' : 'text-amber-800 font-bold bg-amber-100'
+                    : 'hover:text-amber-400'
                 }`}
               >
-                <Flame className="w-3 h-3 text-terracotta-600" /> Medium
+                <Flame className="w-3 h-3 text-terracotta-500" /> Medium
               </button>
             </div>
           </div>
 
         </div>
 
-        {/* Menu Cards Grid - Bright, Crisp Luxury Theme */}
+        {/* Menu Cards Grid */}
         {filteredDishes.length === 0 ? (
-          <div className="text-center py-16 bg-white rounded-2xl border border-[#e8e1d5] max-w-md mx-auto shadow-sm">
-            <p className="text-stone-500 text-sm">No dishes found in this category.</p>
+          <div className={`text-center py-16 rounded-2xl border max-w-md mx-auto shadow-sm ${
+            isMidnight ? 'bg-stone-900 border-stone-800 text-stone-300' : 'bg-white border-[#e8e1d5] text-stone-500'
+          }`}>
+            <p className="text-sm">No dishes found in this category.</p>
             <button
               onClick={() => {
                 setSelectedCategory('All');
                 setSearchQuery('');
                 setActiveSpiceFilter('all');
               }}
-              className="mt-4 px-4 py-2 text-xs font-semibold text-amber-700 hover:underline"
+              className="mt-4 px-4 py-2 text-xs font-semibold text-amber-500 hover:underline cursor-pointer"
             >
               Reset Filters
             </button>
@@ -180,60 +209,73 @@ export const Menu: React.FC = () => {
             {filteredDishes.map((dish: MenuItem) => (
               <div
                 key={dish.id}
-                className="group bg-white rounded-2xl border border-[#e8e1d5] overflow-hidden hover:border-amber-400 transition-all duration-300 flex flex-col justify-between hover:shadow-xl hover:shadow-stone-200/50 text-left"
+                className={`group rounded-2xl border overflow-hidden transition-all duration-300 flex flex-col justify-between hover:shadow-2xl text-left ${
+                  isMidnight 
+                    ? 'bg-stone-900/90 border-stone-800 hover:border-amber-500/60 shadow-stone-950/60' 
+                    : 'bg-white border-[#e8e1d5] hover:border-amber-400 shadow-xl shadow-stone-200/50'
+                }`}
               >
                 <div>
                   {/* Distinct Food/Drink Image */}
-                  <div className="relative aspect-[16/10] overflow-hidden bg-stone-100">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-stone-900/30">
                     <img
                       src={dish.image}
                       alt={dish.name}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = '/images/dish_saffron_biryani_1793203589529.jpg';
+                      }}
                     />
 
                     {/* Veg/Non-Veg Badge */}
-                    <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-2.5 py-0.5 rounded-md border border-stone-200 shadow-sm flex items-center gap-1.5">
+                    <div className="absolute top-3 left-3 bg-white/95 dark:bg-stone-900/90 backdrop-blur-md px-2.5 py-0.5 rounded-md border border-stone-200 dark:border-stone-700 shadow-sm flex items-center gap-1.5">
                       <span
                         className={`w-2 h-2 rounded-full ${
                           dish.isVegetarian ? 'bg-emerald-600' : 'bg-rose-600'
                         }`}
                       />
-                      <span className="text-[10px] uppercase font-bold text-stone-800">
+                      <span className="text-[10px] uppercase font-bold text-stone-800 dark:text-stone-200">
                         {dish.isVegetarian ? 'Veg' : 'Non-Veg'}
                       </span>
                     </div>
 
                     {/* Prep Time */}
                     {dish.prepTime && (
-                      <span className="absolute bottom-2 right-3 text-[10px] bg-black/60 backdrop-blur-sm text-white px-2 py-0.5 rounded font-medium">
+                      <span className="absolute bottom-2 right-3 text-[10px] bg-black/65 backdrop-blur-sm text-white px-2 py-0.5 rounded font-medium">
                         {dish.prepTime}
                       </span>
                     )}
                   </div>
 
-                  {/* Body Info with perfect left alignment */}
+                  {/* Body Info */}
                   <div className="p-5 text-left">
                     <div className="flex items-start justify-between gap-2 mb-1.5">
-                      <h3 className="font-serif text-lg font-bold text-stone-900 group-hover:text-amber-700 transition-colors leading-snug">
+                      <h3 className={`font-serif text-lg font-bold transition-colors leading-snug ${
+                        isMidnight ? 'text-white group-hover:text-amber-300' : 'text-stone-900 group-hover:text-amber-700'
+                      }`}>
                         {dish.name}
                       </h3>
                       {dish.spiceLevel !== undefined && dish.spiceLevel > 0 && (
                         <div className="flex items-center gap-0.5 shrink-0 mt-1" title={`Spice level: ${dish.spiceLevel}`}>
                           {Array.from({ length: dish.spiceLevel }).map((_, i) => (
-                            <Flame key={i} className="w-3 h-3 text-terracotta-500 fill-terracotta-500" />
+                            <Flame key={i} className="w-3 h-3 text-amber-500 fill-amber-500" />
                           ))}
                         </div>
                       )}
                     </div>
 
-                    <p className="text-xs text-stone-600 leading-relaxed line-clamp-2">
+                    <p className={`text-xs leading-relaxed line-clamp-2 ${
+                      isMidnight ? 'text-stone-400' : 'text-stone-600'
+                    }`}>
                       {dish.description}
                     </p>
 
                     {/* Category tag */}
                     {dish.tags && dish.tags[0] && (
-                      <div className="mt-2 text-[11px] text-amber-800 font-medium">
+                      <div className="mt-2 text-[11px] text-amber-500 font-medium">
                         {dish.tags[0]}
                       </div>
                     )}
@@ -241,17 +283,21 @@ export const Menu: React.FC = () => {
                 </div>
 
                 {/* Footer with Price and Add to Cart */}
-                <div className="px-5 pb-5 pt-3 border-t border-stone-100 flex items-center justify-between">
+                <div className={`px-5 pb-5 pt-3 border-t flex items-center justify-between ${
+                  isMidnight ? 'border-stone-800' : 'border-stone-100'
+                }`}>
                   <div className="text-left">
                     <span className="text-[10px] uppercase text-stone-400 font-medium block">Price</span>
-                    <span className="font-serif text-lg font-bold text-stone-900 tabular-nums">
+                    <span className={`font-serif text-lg font-bold tabular-nums ${
+                      isMidnight ? 'text-cream-50' : 'text-stone-900'
+                    }`}>
                       ₹{dish.price.toLocaleString('en-IN')}
                     </span>
                   </div>
 
                   <button
                     onClick={() => addToCart(dish)}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-stone-950 bg-amber-400 hover:bg-amber-300 rounded-lg shadow-sm transition-all active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-stone-950 bg-amber-400 hover:bg-amber-300 rounded-lg shadow-sm transition-all active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 cursor-pointer"
                     aria-label={`Add ${dish.name} to cart`}
                   >
                     <Plus className="w-3.5 h-3.5" />

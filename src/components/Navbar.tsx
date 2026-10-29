@@ -153,18 +153,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReservations }) => {
                   className="h-5.5 w-auto object-contain"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    target.src = '/public/assets/aistudio/image_fa912bac.png';
+                    target.src = '/assets/ashivam_logo.png';
                   }}
                 />
               </div>
 
-              <div className="flex flex-col text-left">
-                <span className={`font-serif text-sm sm:text-base font-bold tracking-[0.14em] uppercase leading-none transition-colors ${
+              <div className="flex flex-col text-left min-w-0">
+                <span className={`font-serif text-xs sm:text-base font-bold tracking-[0.1em] sm:tracking-[0.14em] uppercase leading-none transition-colors truncate ${
                   theme === 'midnight' ? 'text-cream-50 group-hover:text-amber-300' : 'text-stone-900 group-hover:text-[#281523]'
                 }`}>
                   {RESTAURANT_INFO.shortName}
                 </span>
-                <span className={`text-[8px] uppercase tracking-[0.18em] font-medium mt-0.5 ${
+                <span className={`text-[7.5px] sm:text-[8px] uppercase tracking-[0.14em] sm:tracking-[0.18em] font-medium mt-0.5 hidden xs:block ${
                   theme === 'midnight' ? 'text-amber-400/90' : 'text-[#785b6b]'
                 }`}>
                   COLABA • MUMBAI
@@ -172,8 +172,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReservations }) => {
               </div>
             </a>
 
-            {/* Zone 2: Navigation Links */}
-            <nav className="hidden md:flex items-center gap-1 sm:gap-3 lg:gap-5 text-xs sm:text-[13px] font-medium">
+            {/* Zone 2: Navigation Links (visible on desktop >= 1024px) */}
+            <nav className="hidden lg:flex items-center gap-2 xl:gap-4 text-[13px] font-medium">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.id || (link.id === 'about' && activeSection === 'about');
                 return (
@@ -202,14 +202,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReservations }) => {
             </nav>
 
             {/* Zone 3: Actions & ALWAYS-VISIBLE "Book a Table" Button */}
-            <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+            <div className="flex items-center gap-1 sm:gap-2 shrink-0">
               
-              {/* Light / Dark Mode Toggle */}
+              {/* Light / Dark Mode Toggle (visible on tablet and desktop; accessible via drawer on mobile) */}
               <button
                 onClick={toggleTheme}
                 aria-label={`Switch to ${theme === 'cream' ? 'Dark' : 'Light'} Mode`}
                 title={`Switch to ${theme === 'cream' ? 'Dark' : 'Light'} Mode`}
-                className={`p-1.5 sm:px-2.5 sm:py-1 rounded-full text-xs font-semibold transition-all border cursor-pointer ${
+                className={`hidden sm:inline-flex p-1.5 sm:px-2.5 sm:py-1 rounded-full text-xs font-semibold transition-all border cursor-pointer shrink-0 ${
                   theme === 'midnight'
                     ? 'bg-stone-900 border-amber-400/30 text-amber-300 hover:bg-stone-800'
                     : 'bg-white border-stone-300 text-stone-700 hover:bg-stone-50'
@@ -231,7 +231,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReservations }) => {
               {/* Cart Button */}
               <button
                 onClick={() => setIsCartOpen(true)}
-                className={`relative p-1.5 sm:p-2 rounded-full border transition-all cursor-pointer ${
+                className={`relative p-1.5 sm:p-2 rounded-full border transition-all cursor-pointer shrink-0 ${
                   theme === 'midnight'
                     ? 'border-stone-700 bg-stone-900/80 text-stone-200 hover:bg-stone-800'
                     : 'border-stone-300 bg-white hover:bg-stone-50 text-stone-800'
@@ -248,7 +248,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReservations }) => {
                 )}
               </button>
 
-              {/* ALWAYS-VISIBLE "Book a Table" Primary Pill Button (Fits in line on all devices!) */}
+              {/* "Book a Table" Pill Button (visible on tablet and desktop; prominent in Hero & Drawer on mobile) */}
               <button
                 onClick={() => {
                   if (onOpenReservations) {
@@ -257,7 +257,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReservations }) => {
                     scrollToSection('reservations');
                   }
                 }}
-                className={`inline-flex items-center justify-center gap-1.5 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs font-bold tracking-wide transition-all shadow-md cursor-pointer whitespace-nowrap active:scale-95 shrink-0 ${
+                className={`hidden sm:inline-flex items-center justify-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-bold tracking-wide transition-all shadow-md cursor-pointer whitespace-nowrap active:scale-95 shrink-0 ${
                   theme === 'midnight'
                     ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-stone-950 hover:from-amber-300 hover:to-amber-400 shadow-amber-500/20'
                     : 'bg-[#281523] text-white hover:bg-[#3d1f34] shadow-[#281523]/25'
@@ -267,17 +267,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReservations }) => {
                 <span>Book a Table</span>
               </button>
 
-              {/* Mobile Menu Hamburger */}
+              {/* Mobile Menu Hamburger (visible on screens < 1024px) */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className={`md:hidden p-1.5 rounded-full border transition-colors cursor-pointer shrink-0 ${
+                className={`lg:hidden p-1.5 rounded-full border transition-colors cursor-pointer shrink-0 ${
                   theme === 'midnight'
                     ? 'border-stone-700 bg-stone-900 text-stone-200'
                     : 'border-stone-300 bg-white text-stone-800'
                 }`}
                 aria-label="Toggle navigation menu"
               >
-                {isMobileMenuOpen ? <X className="w-4.5 h-4.5" /> : <MenuIcon className="w-4.5 h-4.5" />}
+                {isMobileMenuOpen ? <X className="w-4 h-4" /> : <MenuIcon className="w-4 h-4" />}
               </button>
 
             </div>
@@ -286,9 +286,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReservations }) => {
         </div>
       </header>
 
-      {/* Mobile Drawer Navigation with Pill Aesthetic */}
+      {/* Mobile & Tablet Drawer Navigation with Pill Aesthetic */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-50 md:hidden">
+        <div className="fixed inset-0 z-50 lg:hidden">
           <div
             className="fixed inset-0 bg-stone-950/60 backdrop-blur-xs transition-opacity"
             onClick={() => setIsMobileMenuOpen(false)}
@@ -331,8 +331,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReservations }) => {
               </div>
 
               {/* Theme Switcher in Mobile Drawer */}
-              <div className="mt-4 flex items-center justify-between p-3 rounded-2xl bg-black/5 dark:bg-white/5 border border-stone-200/50">
-                <span className="text-xs font-semibold">Theme Mode:</span>
+              <div className={`mt-4 flex items-center justify-between p-3 rounded-2xl border ${
+                theme === 'midnight' ? 'bg-stone-900 border-stone-800' : 'bg-black/5 border-stone-300/70'
+              }`}>
+                <span className={`text-xs font-semibold ${theme === 'midnight' ? 'text-stone-300' : 'text-stone-800'}`}>Theme Mode:</span>
                 <button
                   onClick={toggleTheme}
                   className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold border ${
@@ -355,8 +357,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReservations }) => {
                       activeSection === link.id
                         ? theme === 'midnight'
                           ? 'bg-stone-800 text-amber-300 font-bold'
-                          : 'bg-stone-200 text-stone-950 font-bold'
-                        : 'text-stone-700 dark:text-stone-300 hover:bg-black/5 dark:hover:bg-white/5'
+                          : 'bg-stone-200/90 text-stone-950 font-bold'
+                        : theme === 'midnight'
+                          ? 'text-stone-300 hover:bg-white/10'
+                          : 'text-stone-800 hover:bg-black/5'
                     }`}
                   >
                     {link.label}
